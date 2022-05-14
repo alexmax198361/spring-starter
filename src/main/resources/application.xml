@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <bean id="applicationName" class="java.lang.String">
+        <constructor-arg type="java.lang.String" value="spring starter"/>
+    </bean>
+    <bean id="pool1" class="org.dmdev.core.ConnectionPool">
+        <constructor-arg name="databaseName" value="postgres" type="java.lang.String" />
+        <constructor-arg name="poolSize" value="10" type="java.lang.Integer"/>
+        <constructor-arg name="args" type="java.util.List">
+            <list>
+                <value>12</value>
+                <value>12</value>
+                <value>12</value>
+            </list>
+        </constructor-arg>
+        <constructor-arg name="properties" type="java.util.Map">
+            <map>
+                <entry key="username" value="sazanovich"/>
+            </map>
+        </constructor-arg>
+    </bean>
+
+</beans>
