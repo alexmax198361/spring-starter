@@ -14,10 +14,19 @@ public class ConnectionPool {
         this.databaseName = databaseName;
         this.poolSize = poolSize;
         this.args = args;
+        System.out.println("created object connectionPool");
     }
 
     public void setProperties(Map<String, Object> properties) {
         this.properties = properties;
+        System.out.println("added properties with helped set method");
     }
 
+    private void init() {
+        System.out.println("init method from xml file");
+    }
+
+    private void destroy() {
+        System.out.println("destroy method from xml file");
+    }
 }
