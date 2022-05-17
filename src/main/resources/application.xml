@@ -4,15 +4,17 @@
        xmlns:context="http://www.springframework.org/schema/context"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd">
     <context:property-placeholder location="classpath*:application.properties"/>
+    <context:annotation-config/>
     <!--    <bean class="org.springframework.context.support.PropertySourcesPlaceholderConfigurer">-->
     <!--        <property name="location" value="application.properties"/>-->
     <!--    </bean>-->
+    <!--    <bean class="org.springframework.context.annotation.CommonAnnotationBeanPostProcessor"/>-->
     <bean class="org.dmdev.config.LogBeanFactoryPostProcessor"/>
     <bean class="org.dmdev.config.VerifyBeanFactoryPostProcessor"/>
     <bean id="applicationName" class="java.lang.String">
         <constructor-arg type="java.lang.String" value="spring starter"/>
     </bean>
-    <bean id="pool1" class="org.dmdev.core.ConnectionPool" init-method="init" destroy-method="destroy">
+    <bean id="pool1" class="org.dmdev.core.ConnectionPool">
         <constructor-arg name="databaseName" value="postgres" type="java.lang.String"/>
         <constructor-arg name="poolSize" value="10" type="java.lang.Integer"/>
         <constructor-arg name="args" type="java.util.List">
