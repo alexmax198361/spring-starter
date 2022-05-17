@@ -7,6 +7,8 @@
     <!--    <bean class="org.springframework.context.support.PropertySourcesPlaceholderConfigurer">-->
     <!--        <property name="location" value="application.properties"/>-->
     <!--    </bean>-->
+    <bean class="org.dmdev.config.LogBeanFactoryPostProcessor"/>
+    <bean class="org.dmdev.config.VerifyBeanFactoryPostProcessor"/>
     <bean id="applicationName" class="java.lang.String">
         <constructor-arg type="java.lang.String" value="spring starter"/>
     </bean>
