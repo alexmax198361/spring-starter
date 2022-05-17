@@ -12,6 +12,7 @@ public class ApplicationRunner {
         try (ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("application.xml")) {
             ConnectionPool connectionPoolOne = context.getBean("pool1", ConnectionPool.class);
             CrudRepository<User, Integer> bean = context.getBean("userRepository", CrudRepository.class);
+            System.out.println(bean.getBeanName());
             User user = bean.findById(1);
             System.out.println("Id users " + user.getId());
 

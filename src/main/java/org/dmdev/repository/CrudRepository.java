@@ -6,4 +6,6 @@ public interface CrudRepository<T, V> {
 
     void delete(V id);
 
+    String getBeanName();
+
 }

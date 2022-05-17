@@ -4,6 +4,7 @@ import org.dmdev.bpp.Transactional;
 import org.dmdev.core.ConnectionPool;
 import org.dmdev.entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 
 import javax.annotation.PostConstruct;
 import java.util.List;
@@ -11,6 +12,14 @@ import java.util.Optional;
 
 @Transactional
 public class UserRepository implements CrudRepository<User, Integer> {
+
+    @Value("${bean.userRepository.name}")
+    private String beanName;
+
+    @Override
+    public String getBeanName() {
+        return beanName;
+    }
 
     @Autowired
     private List<ConnectionPool> pool;
