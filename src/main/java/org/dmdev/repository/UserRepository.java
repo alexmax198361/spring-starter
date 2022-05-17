@@ -1,18 +1,19 @@
 package org.dmdev.repository;
 
-import org.dmdev.bpp.InjectBean;
 import org.dmdev.bpp.Transactional;
 import org.dmdev.core.ConnectionPool;
 import org.dmdev.entity.User;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.annotation.PostConstruct;
+import java.util.List;
 import java.util.Optional;
 
 @Transactional
 public class UserRepository implements CrudRepository<User, Integer> {
 
-    @InjectBean
-    private ConnectionPool connectionPool;
+    @Autowired
+    private List<ConnectionPool> pool;
 
     @Override
     public User findById(Integer id) {
