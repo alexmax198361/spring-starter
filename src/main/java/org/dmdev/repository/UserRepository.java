@@ -5,12 +5,14 @@ import org.dmdev.core.ConnectionPool;
 import org.dmdev.entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;
 import java.util.List;
 import java.util.Optional;
 
 @Transactional
+@Component
 public class UserRepository implements CrudRepository<User, Integer> {
 
     @Value("${bean.userRepository.name}")

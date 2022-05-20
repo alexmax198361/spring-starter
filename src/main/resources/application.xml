@@ -5,58 +5,30 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd">
     <context:property-placeholder location="classpath*:application.properties"/>
     <context:annotation-config/>
+    <context:component-scan base-package="org.dmdev"/>
     <!--    <bean class="org.springframework.context.support.PropertySourcesPlaceholderConfigurer">-->
     <!--        <property name="location" value="application.properties"/>-->
     <!--    </bean>-->
     <!--    <bean class="org.springframework.context.annotation.CommonAnnotationBeanPostProcessor"/>-->
-    <bean class="org.dmdev.config.LogBeanFactoryPostProcessor"/>
-    <bean class="org.dmdev.config.VerifyBeanFactoryPostProcessor"/>
-    <bean class="org.dmdev.bpp.InjectBeanPostProcessor"/>
-    <bean class="org.dmdev.bpp.TransactionalPostProcessor"/>
     <bean id="applicationName" class="java.lang.String">
         <constructor-arg type="java.lang.String" value="spring starter"/>
     </bean>
-    <bean id="userRepository" name="userRepository" class="org.dmdev.repository.UserRepository"/>
-    <!--  тестирование @Autowired -->
-    <bean id="userRepositoryCopy" name="userRepositoryCopy" class="org.dmdev.repository.UserRepository"/>
-    <bean id="pool1" class="org.dmdev.core.ConnectionPool">
-        <constructor-arg name="databaseName" value="postgres" type="java.lang.String"/>
-        <constructor-arg name="poolSize" value="10" type="java.lang.Integer"/>
-        <constructor-arg name="args" type="java.util.List">
-            <list>
-                <value>12</value>
-                <value>12</value>
-                <value>12</value>
-            </list>
-        </constructor-arg>
-        <constructor-arg name="properties" type="java.util.Map">
-            <null/>
-        </constructor-arg>
-        <property name="properties">
-            <map>
-                <entry key="username" value="${db.username}"/>
-                <entry key="password" value="${db.password}"/>
-            </map>
-        </property>
-    </bean>
-    <bean id="pool2" class="org.dmdev.core.ConnectionPool">
-        <constructor-arg name="databaseName" value="postgres" type="java.lang.String"/>
-        <constructor-arg name="poolSize" value="10" type="java.lang.Integer"/>
-        <constructor-arg name="args" type="java.util.List">
-            <list>
-                <value>12</value>
-                <value>12</value>
-                <value>12</value>
-            </list>
-        </constructor-arg>
-        <constructor-arg name="properties" type="java.util.Map">
-            <null/>
-        </constructor-arg>
-        <property name="properties">
-            <map>
-                <entry key="username" value="${db.username}"/>
-                <entry key="password" value="${db.password}"/>
-            </map>
-        </property>
-    </bean>
+<!--        <constructor-arg name="args" type="java.util.List">-->
+<!--            <list>-->
+<!--                <value>12</value>-->
+<!--                <value>12</value>-->
+<!--                <value>12</value>-->
+<!--            </list>-->
+<!--        </constructor-arg>-->
+<!--        <constructor-arg name="properties" type="java.util.Map">-->
+<!--            <null/>-->
+<!--        </constructor-arg>-->
+<!--        <property name="properties">-->
+<!--            <map>-->
+<!--                <entry key="username" value="${db.username}"/>-->
+<!--                <entry key="password" value="${db.password}"/>-->
+<!--            </map>-->
+<!--        </property>-->
+
+
 </beans>
