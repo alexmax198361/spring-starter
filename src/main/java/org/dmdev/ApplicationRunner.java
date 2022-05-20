@@ -1,19 +1,20 @@
 package org.dmdev;
 
+import org.dmdev.config.ApplicationConfig;
 import org.dmdev.core.ConnectionPool;
 import org.dmdev.entity.User;
 import org.dmdev.repository.CrudRepository;
 
-import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 public class ApplicationRunner {
 
     public static void main(String[] args) {
-        try (ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("application.xml")) {
-            ConnectionPool connectionPoolOne = context.getBean("pool1", ConnectionPool.class);
-            CrudRepository bean = context.getBean("userRepository", CrudRepository.class);
+        try (AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(ApplicationConfig.class)) {
+            ConnectionPool connectionPoolOne = context.getBean(ConnectionPool.class);
+            CrudRepository<User, Integer> bean = context.getBean("userRepository", CrudRepository.class);
             System.out.println(bean.getBeanName());
-            User user = (User) bean.findById(1);
+            User user = bean.findById(1);
             System.out.println("Id users " + user.getId());
 
         } catch (Exception exception) {
