@@ -1,8 +1,10 @@
 package org.dmdev.repository;
 
+import java.util.Optional;
+
 public interface CrudRepository<T, V> {
 
-    T findById(V id);
+    Optional<T> findById(V id);
 
     void delete(V id);
 

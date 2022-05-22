@@ -40,11 +40,11 @@ public class UserRepository implements CrudRepository<User, Integer> {
     private ConnectionPool pool1;
 
     @Override
-    public User findById(Integer id) {
+    public Optional<User> findById(Integer id) {
         System.out.println("findById User....");
         User user = new User();
         user.setId(12);
-        return Optional.of(user).orElse(null);
+        return Optional.of(user);
     }
 
     @Override
