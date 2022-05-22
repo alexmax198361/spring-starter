@@ -11,7 +11,7 @@ public class ApplicationRunner {
 
     public static void main(String[] args) {
         try (AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(ApplicationConfig.class)) {
-            ConnectionPool connectionPoolOne = context.getBean(ConnectionPool.class);
+            ConnectionPool connectionPoolOne = context.getBean("pool1", ConnectionPool.class);
             CrudRepository<User, Integer> bean = context.getBean("userRepository", CrudRepository.class);
             System.out.println(bean.getBeanName());
             User user = bean.findById(1);
