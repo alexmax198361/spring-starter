@@ -1,5 +1,6 @@
 package org.dmdev.core;
 
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
@@ -7,17 +8,13 @@ import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
 
 @Component(value = "pool1")
+@RequiredArgsConstructor
 public class ConnectionPool {
 
+    @Value("${db.name}")
     private final String databaseName;
+    @Value("${db.poolSize}")
     private final Integer poolSize;
-
-    public ConnectionPool(@Value("${db.name}") String databaseName,
-                          @Value("${db.poolSize}") Integer poolSize) {
-        this.databaseName = databaseName;
-        this.poolSize = poolSize;
-
-    }
 
     @PostConstruct
     private void init() {

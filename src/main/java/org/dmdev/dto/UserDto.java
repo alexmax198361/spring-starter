@@ -1,14 +1,12 @@
 package org.dmdev.dto;
 
+import lombok.Getter;
+import lombok.RequiredArgsConstructor;
+
+@RequiredArgsConstructor
 public class UserDto {
 
+    @Getter
     private final long id;
 
-    public UserDto(long id) {
-        this.id = id;
-    }
-
-    public long getId() {
-        return id;
-    }
 }
