@@ -21,7 +21,7 @@ public class UserService {
     public Optional<UserDto> findById(Integer id) {
         return userRepository.findById(id).map(user -> {
             eventPublisher.publishEvent(new EntityEvent(user, AccessType.VIEW));
-            return new UserDto(id);
+            return new UserDto(user.getId());
         });
     }
 }

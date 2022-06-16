@@ -1,10 +1,14 @@
 package org.dmdev.entity;
 
-import lombok.Data;
+import lombok.*;
 
-@Data
+
+@AllArgsConstructor
+@NoArgsConstructor
 public class User {
 
-    private long id;
+    @Getter
+    @Setter
+    private int id;
 
 }
