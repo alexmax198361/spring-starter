@@ -40,7 +40,7 @@ class UserServiceTest {
         var expectedResult = new UserDto(1);
         actualPresent.ifPresent(userDto -> assertEquals(expectedResult, userDto));
         Mockito.verify(eventPublisher).publishEvent(any(EntityEvent.class));
-       Mockito.verifyNoMoreInteractions(eventPublisher);
+        Mockito.verifyNoMoreInteractions(eventPublisher);
 
     }
 }
