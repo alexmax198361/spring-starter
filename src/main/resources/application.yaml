@@ -1,0 +1,25 @@
+db:
+  username: postgres
+  password: 2009
+  name: test
+  poolSize: 12
+bean:
+ userRepository:
+  name: UserRepository bean
+logging:
+  level:
+    root: info
+  file:
+    path: /home
+    name: dmdev.log
+spring:
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5433/postgres
+    username: postgres
+    password: pass
+  jpa:
+    properties:
+      hibernate:
+        show_sql: true
+        format_sql: true
