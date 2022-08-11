@@ -9,7 +9,6 @@ import javax.annotation.PostConstruct;
 
 @Configuration
 @Conditional(JpaConditional.class)
-@ConditionalOnBean()
 public class JpaConfiguration {
 
     @PostConstruct
